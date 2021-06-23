@@ -1,7 +1,14 @@
-﻿@{
+﻿@using MovieListingsApp.Models
+
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>@ViewBag.Title</h2>
+<hr class="mt-0" />
+
+<small>v.@AppInfo.Version</small>
+<p>
+    An Asp.Net Razor MVC 5 website that displays movie listings.
+    Listing page shows a list of movies, including a distinct thumbnail image.
+</p>
