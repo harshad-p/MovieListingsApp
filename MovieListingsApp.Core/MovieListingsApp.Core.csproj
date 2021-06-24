@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Repositories\IActorsRepository.cs" />
+    <Compile Include="Contracts\Repositories\IGenericRepository.cs" />
+    <Compile Include="Contracts\Repositories\IGenericRepositoryAsync.cs" />
     <Compile Include="Entities\MovieListingsDbContext.cs" />
     <Compile Include="Entities\TblActor.cs" />
     <Compile Include="Entities\TblMovie.cs" />
@@ -62,9 +65,7 @@
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
