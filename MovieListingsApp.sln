@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieListingsApp.Tests", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieListingsApp.Core", "MovieListingsApp.Core\MovieListingsApp.Core.csproj", "{3D1DF806-6E83-4FF6-8D2E-EAB47CC2894A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieListingsApp.Infrastructure", "MovieListingsApp.Infrastructure\MovieListingsApp.Infrastructure.csproj", "{9B3D9A40-E82C-47ED-93AB-EFCA3FF6245C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3D1DF806-6E83-4FF6-8D2E-EAB47CC2894A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D1DF806-6E83-4FF6-8D2E-EAB47CC2894A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D1DF806-6E83-4FF6-8D2E-EAB47CC2894A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3D9A40-E82C-47ED-93AB-EFCA3FF6245C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3D9A40-E82C-47ED-93AB-EFCA3FF6245C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3D9A40-E82C-47ED-93AB-EFCA3FF6245C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3D9A40-E82C-47ED-93AB-EFCA3FF6245C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
