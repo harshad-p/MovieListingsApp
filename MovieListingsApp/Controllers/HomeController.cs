@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MovieListingsApp.Contracts.Services;
 using System.Web.Mvc;
 
 namespace MovieListingsApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IActorsService _actorsService;
+
+        public HomeController(IActorsService actorsService)
+        {
+            _actorsService = actorsService;
+        }
+
         public ActionResult Index()
         {
+            _actorsService.Test().Wait();
             return View();
         }
 
