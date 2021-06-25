@@ -13,7 +13,12 @@ namespace MovieListingsApp.Models.MovieModels.ValidationAttributes
 
             if (!thumbnails.Any() || thumbnails.Any(t => t == null))
             {
-                return new ValidationResult("Please upload atleast 1 Thumbnail.");
+                return new ValidationResult("Please upload at least 1 Thumbnail.");
+            }
+
+            if (thumbnails.Any(t => !(t.ContentType.Contains("jpeg") || t.ContentType.Contains("jpg"))))
+            {
+                return new ValidationResult("Only jpeg's are currently accepted.");
             }
 
             return ValidationResult.Success;

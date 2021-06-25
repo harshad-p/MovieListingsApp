@@ -13,7 +13,7 @@ namespace MovieListingsApp.Models.MovieModels.ValidationAttributes
 
             if (!actors.Any())
             {
-                return new ValidationResult("Please select atleast 1 Actor.");
+                return new ValidationResult("Please select at least 1 Actor.");
             }
 
             return ValidationResult.Success;

@@ -33,12 +33,12 @@
         <nav class="navbar bg-dark text-white navbar-expand-lg border-bottom box-shadow">
             <div class="container-fluid">
                 @*<a class="navbar-brand text-white font-weight-bold text-nowrap" asp-area="" asp-controller="Home" asp-action="Landing">
-            <img src="~/img/UPF_logo_1.ico" width="30" height="30"
-                 class="d-inline-block align-top"
-                 alt=""
-                 style="background-color: cornflowerblue">
-            @appName
-        </a>*@
+                        <img src="~/img/UPF_logo_1.ico" width="30" height="30"
+                             class="d-inline-block align-top"
+                             alt=""
+                             style="background-color: cornflowerblue">
+                        @appName
+                    </a>*@
                 @Html.ActionLink(appName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-white" })
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -77,8 +77,16 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
