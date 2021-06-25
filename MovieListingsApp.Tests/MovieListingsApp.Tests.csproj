@@ -35,12 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Effort, Version=2.2.13.0, Culture=neutral, PublicKeyToken=6a46696d54971e6d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Effort.EF6.2.2.13\lib\net45\Effort.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="NMemory, Version=3.0.0.0, Culture=neutral, PublicKeyToken=afc61983f100d280, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMemory.3.1.2\lib\net45\NMemory.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -91,6 +103,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Utilities\DbContextUtilities.cs" />
+    <Compile Include="Utilities\FormModelGeneratorsUtilities.cs" />
+    <Compile Include="Utilities\RepositoryUtilities.cs" />
+    <Compile Include="Utilities\ServiceUtilities.cs" />
+    <Compile Include="Utilities\ViewModelGeneratorsUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -99,6 +116,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MovieListingsApp.Core\MovieListingsApp.Core.csproj">
+      <Project>{3D1DF806-6E83-4FF6-8D2E-EAB47CC2894A}</Project>
+      <Name>MovieListingsApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieListingsApp.Infrastructure\MovieListingsApp.Infrastructure.csproj">
+      <Project>{9B3D9A40-E82C-47ED-93AB-EFCA3FF6245C}</Project>
+      <Name>MovieListingsApp.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieListingsApp\MovieListingsApp.csproj">
       <Project>{43365080-5D21-40BF-9F5A-2D00CCB30818}</Project>
       <Name>MovieListingsApp</Name>
