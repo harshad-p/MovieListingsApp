@@ -1,21 +1,28 @@
-﻿using MovieListingsApp.Contracts.Services;
+﻿using MovieListingsApp.Contracts.ViewModelGenerators;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace MovieListingsApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IActorsService _actorsService;
+        private readonly IMovieViewModelGenerators _movieViewModelGenerators;
+        //private readonly IMoviesService _actorsService;
 
-        public HomeController(IActorsService actorsService)
+        public HomeController(IMovieViewModelGenerators movieViewModelGenerators)
         {
-            _actorsService = actorsService;
+            _movieViewModelGenerators = movieViewModelGenerators;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            _actorsService.Test().Wait();
-            return View();
+            var viewModel = await _movieViewModelGenerators.GetIndexViewModelAsync();
+            if(viewModel == null)
+            {
+                return View("Error", "Cannot view Movie Listings at the moment.");
+            }
+
+            return View(viewModel);
         }
 
         public ActionResult About()

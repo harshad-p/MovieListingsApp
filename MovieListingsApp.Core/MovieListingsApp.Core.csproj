@@ -57,6 +57,8 @@
     <Compile Include="Contracts\Repositories\IActorsRepository.cs" />
     <Compile Include="Contracts\Repositories\IGenericRepository.cs" />
     <Compile Include="Contracts\Repositories\IGenericRepositoryAsync.cs" />
+    <Compile Include="Contracts\Repositories\IMoviesRepository.cs" />
+    <Compile Include="Contracts\Repositories\IMovieThumbnailsRepository.cs" />
     <Compile Include="Entities\MovieListingsDbContext.cs" />
     <Compile Include="Entities\TblActor.cs" />
     <Compile Include="Entities\TblMovie.cs" />

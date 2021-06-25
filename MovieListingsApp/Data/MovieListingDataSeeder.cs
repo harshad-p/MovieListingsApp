@@ -3,9 +3,13 @@ using MovieListingsApp.Core.Entities;
 using MovieListingsApp.Core.Models;
 using MovieListingsApp.Entities;
 using MovieListingsApp.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Web.Hosting;
 
 namespace MovieListingsApp.Data
 {
@@ -88,16 +92,64 @@ namespace MovieListingsApp.Data
                     Title = "Terminator", 
                     Description = "Terminator", 
                     Year = 1984, 
+                    Thumbnails = GetTerminatorThumbnails()
                 },
                 new TblMovie
                 {
                     Title = "Black Widow",
                     Description = "Black Widow",
                     Year = 2021,
+                    Thumbnails = GetBlackWidowThumbnails()
                 }
             };
 
             return movies;
+        }
+
+        private ICollection<TblMovieThumbnail> GetTerminatorThumbnails()
+        {
+            var imgName = "Terminator.jpg";
+            var thumbnails = new List<TblMovieThumbnail>();
+            thumbnails.Add(BuildMovieThumbnail(imgName));
+            return thumbnails;
+        }
+
+        private ICollection<TblMovieThumbnail> GetBlackWidowThumbnails()
+        {
+            var imgName = "Black-Widow.jpg"; 
+            var thumbnails = new List<TblMovieThumbnail>();
+            thumbnails.Add(BuildMovieThumbnail(imgName));
+            return thumbnails;
+        }
+
+        private string BuildImgPath(string imgName)
+        {
+            var appDirectory = HostingEnvironment.ApplicationPhysicalPath;
+            var imgDirectory = Path.Combine(appDirectory, "App_Data", "img");
+            var imgPath = Path.Combine(imgDirectory, imgName);
+            return imgPath;
+        }
+
+        private TblMovieThumbnail BuildMovieThumbnail(string imgName)
+        {
+            var imgPath = BuildImgPath(imgName);
+
+            var thumbnail = new TblMovieThumbnail
+            {
+                ContentType = "image/jpeg",
+                FileName = imgName,
+                TimeStampUtc = DateTime.UtcNow,
+            };
+
+            using (var stream = new FileStream(imgPath, FileMode.Open, FileAccess.Read))
+            {
+                BinaryReader binaryReader = new BinaryReader(stream);
+                long byteLength = new FileInfo(imgPath).Length;
+                thumbnail.Content = binaryReader.ReadBytes((Int32)byteLength);
+                binaryReader.Close();
+            }
+
+            return thumbnail;
         }
 
         private async Task LoadActorsAsync()

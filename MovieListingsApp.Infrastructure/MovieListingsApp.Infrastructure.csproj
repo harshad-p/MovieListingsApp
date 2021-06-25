@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActorsRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\MoviesRepository.cs" />
+    <Compile Include="Repositories\MovieThumbnailsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieListingsApp.Core\MovieListingsApp.Core.csproj">

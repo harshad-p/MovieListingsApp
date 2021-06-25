@@ -146,16 +146,28 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Contracts\Services\IActorsService.cs" />
+    <Compile Include="Contracts\Services\IMoviesService.cs" />
+    <Compile Include="Contracts\Services\IMovieThumbnailsService.cs" />
+    <Compile Include="Contracts\ViewModelGenerators\IMovieViewModelGenerators.cs" />
+    <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MovieThumbnailsController.cs" />
     <Compile Include="Data\MovieListingDataSeeder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppInfo.cs" />
+    <Compile Include="Models\CreateMovieViewModel.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ActorsService.cs" />
+    <Compile Include="Services\MovieThumbnailsService.cs" />
+    <Compile Include="ViewModelGenerators\MovieViewModelGenerators.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\img\Black-Widow.jpg" />
+    <Content Include="App_Data\img\Terminator.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -190,11 +202,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index_Sample.cshtml" />
     <Content Include="Views\_ViewImports.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index_Actions.cshtml" />
+    <Content Include="Views\Home\Index_Movies.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Views\MovieThumbnails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
