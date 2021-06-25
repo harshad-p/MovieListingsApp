@@ -1,8 +1,10 @@
 using Effort;
+using MovieListingsApp.Contracts.FormModelGenerators;
 using MovieListingsApp.Contracts.Services;
 using MovieListingsApp.Contracts.ViewModelGenerators;
 using MovieListingsApp.Core.Contracts.Repositories;
 using MovieListingsApp.Core.Entities;
+using MovieListingsApp.FormModelGenerators;
 using MovieListingsApp.Infrastructure.Repositories;
 using MovieListingsApp.Models;
 using MovieListingsApp.Services;
@@ -42,9 +44,13 @@ namespace MovieListingsApp
             // Services 
             container.RegisterType<IActorsService, ActorsService>();
             container.RegisterType<IMovieThumbnailsService, MovieThumbnailsService>();
+            container.RegisterType<IMoviesService, MoviesService>();
 
             // View Model Generators
             container.RegisterType<IMovieViewModelGenerators, MovieViewModelGenerators>();
+
+            // Form Model Generators
+            container.RegisterType<IMovieFormModelGenerators, MovieFormModelGenerators>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

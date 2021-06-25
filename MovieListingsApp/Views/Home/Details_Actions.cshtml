@@ -31,15 +31,9 @@
 
         <div class="dropdown-menu w-100 p-0" aria-movieledby="dropdownMenuButton">
 
-            @*<a href="~/Ticket?movieId=@movie.Id"
-                   class="dropdown-item text-secondary p-2 slow-loading-element">
-                    <span class="fas fa-bug"></span> Tickets
-                </a>
-                <div class="dropdown-divider m-0"></div>*@
-
             @if (canCreate)
             {
-                <a href="~/Movies/Create"
+                <a href="~/Home/Create"
                    class="dropdown-item text-primary p-2 slow-loading-element">
                     <i class="fas fa-plus-circle"></i> Create
                 </a>
@@ -48,7 +42,7 @@
             @if (canEdit)
             {
                 <div class="dropdown-divider m-0"></div>
-                <a href="~/Movies/Edit/@movie.Id"
+                <a href="~/Home/Edit/@movie.Id"
                    class="dropdown-item text-warning p-2 slow-loading-element">
                     <i class="fas fa-scissors"></i> Edit
                 </a>
@@ -68,5 +62,3 @@
         </div>
     </div>
 }
-
-@*<partial name="Details_Actions_Modals" />*@

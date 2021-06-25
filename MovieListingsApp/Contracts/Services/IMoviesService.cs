@@ -5,6 +5,6 @@ namespace MovieListingsApp.Contracts.Services
 {
     public interface IMoviesService
     {
-        Task<int> CreateAsync(CreateMovieViewModel createMovieViewModel);
+        Task<int> CreateAsync(CreateViewModel createMovieViewModel);
     }
 }

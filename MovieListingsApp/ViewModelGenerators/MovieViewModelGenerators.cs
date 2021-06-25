@@ -64,7 +64,7 @@ namespace MovieListingsApp.ViewModelGenerators
                     ThumbnailIds = thumbnailIds, 
                     MovieUserPrivileges = new MovieUserPrivileges
                     {
-                        
+                        CanCreate = true
                     }
                 };
 
