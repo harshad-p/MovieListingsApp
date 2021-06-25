@@ -5,6 +5,6 @@ namespace MovieListingsApp.Contracts.Services
 {
     public interface IMovieThumbnailsService
     {
-        Task<TblMovieThumbnail> GetByIdLightAsync(long id);
+        Task<TblMovieThumbnail> GetByIdAsync(long id, bool includeBinaryData);
     }
 }

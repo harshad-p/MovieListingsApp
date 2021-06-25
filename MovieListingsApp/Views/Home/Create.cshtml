@@ -29,11 +29,11 @@
 
             <div class="form-group row">
                 <div class="col-md-3">
-                    @Html.LabelFor(m => m.Title, new { @class = "control-label font-weight-bold mb-0" })
+                    @Html.LabelFor(m => m.Title, new { @class = "control -label font-weight-bold mb-0" })
                     <div><small class="font-weight-bold text-secondary">(Required)</small></div>
                 </div>
                 <div class="col-md-9">
-                    @Html.TextBoxFor(m => m.Title, new { placeholder = "What is the name of this Movie?", @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Title, new { autocomplete = "off", placeholder = "What is the name of this Movie?", @class = "form-control" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(m => m.Title)
                     </div>
@@ -46,7 +46,7 @@
                     <div><small class="font-weight-bold text-secondary">(Required)</small></div>
                 </div>
                 <div class="col-md-9">
-                    @Html.TextBoxFor(m => m.Description, new { placeholder = "How would you like to describe this Movie?", @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Description, new { autocomplete = "off", placeholder = "How would you like to describe this Movie?", @class = "form-control" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(m => m.Description)
                     </div>
@@ -59,7 +59,7 @@
                     <div><small class="font-weight-bold text-secondary">(Required)</small></div>
                 </div>
                 <div class="col-md-9">
-                    @Html.TextBoxFor(m => m.Year, new { placeholder = "What year was the Movie released?", @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Year, new { autocomplete = "off", placeholder = "What year was the Movie released?", @class = "form-control" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(m => m.Year)
                     </div>
@@ -69,7 +69,7 @@
             <div class="form-group row">
                 <div class="col-md-3">
                     @Html.LabelFor(m => m.Actors, new { @class = "control-label font-weight-bold mb-0" })
-                    @*<div><small class="font-weight-bold text-secondary">(Required)</small></div>*@
+                    <div><small class="font-weight-bold text-secondary">(Required)</small></div>
                 </div>
                 <div class="col-md-9">
                     @Html.ListBoxFor(m => m.Actors, actors, new { @class = "form-control" })
@@ -82,7 +82,7 @@
             <div class="form-group row">
                 <div class="col-md-3">
                     @Html.LabelFor(m => m.Thumbnails, new { @class = "control-label font-weight-bold mb-0" })
-                    @*<div><small class="font-weight-bold text-secondary">(Required)</small></div>*@
+                    <div><small class="font-weight-bold text-secondary">(Required)</small></div>
                 </div>
                 <div class="col-md-9">
                     @Html.TextBoxFor(m => m.Thumbnails, new { type = "file", @multiple = "multiple", @class = "form-control" })

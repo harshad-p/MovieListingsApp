@@ -15,7 +15,7 @@ namespace TicketingApp.Controllers
 
         public async Task<ActionResult> Download(long id)
         {
-            var thumbnail = await _movieThumbnailsService.GetByIdLightAsync(id);
+            var thumbnail = await _movieThumbnailsService.GetByIdAsync(id, true);
             if (thumbnail == null || thumbnail.Content == null)
             {
                 return View("NotFound", "_Layout", $"Attachment [Id: {id}] not found.");

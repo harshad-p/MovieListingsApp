@@ -15,32 +15,41 @@ namespace MovieListingsApp.Infrastructure.Repositories
         {
         }
 
-        public Task<List<TblMovieThumbnail>> GetAllForMovieLightAsync(int movieId)
-        {
-            return _entities.Where(a => a.MovieId == movieId)
-                            .Select(a => new TblMovieThumbnail
-                            {
-                                Id = a.Id,
-                                MovieId = a.MovieId, 
-                                TimeStampUtc = a.TimeStampUtc,
-                                ContentType = a.ContentType,
-                                FileName = a.FileName
-                            })
-                            .ToListAsync();
-        }
+        //public Task<List<TblMovieThumbnail>> GetAllForMovieLightAsync(int movieId)
+        //{
+        //    return _entities.Where(a => a.MovieId == movieId)
+        //                    .Select(a => new TblMovieThumbnail
+        //                    {
+        //                        Id = a.Id,
+        //                        MovieId = a.MovieId, 
+        //                        TimeStampUtc = a.TimeStampUtc,
+        //                        ContentType = a.ContentType,
+        //                        FileName = a.FileName
+        //                    })
+        //                    .ToListAsync();
+        //}
 
-        public Task<TblMovieThumbnail> GetByIdLightAsync(long id)
+        public async Task<TblMovieThumbnail> GetByIdLightAsync(long id)
         {
-            return _entities.Where(a => a.Id == id)
-                            .Select(a => new TblMovieThumbnail
-                            {
-                                Id = a.Id,
-                                MovieId = a.MovieId, 
-                                TimeStampUtc = a.TimeStampUtc,
-                                ContentType = a.ContentType,
-                                FileName = a.FileName
-                            })
-                            .SingleOrDefaultAsync();
+            return (await _entities.Where(a => a.Id == id)
+                                    .Select(a => new 
+                                    {
+                                        Id = a.Id,
+                                        MovieId = a.MovieId, 
+                                        TimeStampUtc = a.TimeStampUtc,
+                                        ContentType = a.ContentType,
+                                        FileName = a.FileName
+                                    })
+                                    .ToListAsync())
+                                    .Select(a => new TblMovieThumbnail
+                                    {
+                                        Id = a.Id,
+                                        MovieId = a.MovieId,
+                                        TimeStampUtc = a.TimeStampUtc,
+                                        ContentType = a.ContentType,
+                                        FileName = a.FileName
+                                    })
+                                    .Single();
         }
 
         public Task<List<long>> GetAllIdsForMovieAsync(int movieId)

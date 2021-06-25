@@ -14,11 +14,13 @@ namespace MovieListingsApp.Entities
         public int MovieId { get; set; }
         public TblMovie Movie { get; set; }
 
+        [Required]
         public DateTime TimeStampUtc { get; set; }
 
         [Required]
         public string FileName { get; set; }
 
+        [Required]
         public string ContentType { get; set; }
 
         [Required]
