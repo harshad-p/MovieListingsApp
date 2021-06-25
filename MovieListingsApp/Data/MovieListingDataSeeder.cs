@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 
@@ -175,6 +174,31 @@ namespace MovieListingsApp.Data
                 {
                     Gender = Gender.Female,
                     Name = "Scarlett Johansson"
+                },
+                new TblActor
+                {
+                    Gender = Gender.Male,
+                    Name = "Hugh Jackman"
+                },
+                new TblActor
+                {
+                    Gender = Gender.Male,
+                    Name = "Robert Downey Jr."
+                },
+                new TblActor
+                {
+                    Gender = Gender.Male,
+                    Name = "Chris Evans"
+                },
+                new TblActor
+                {
+                    Gender = Gender.Female,
+                    Name = "Evangeline Lilly"
+                },
+                new TblActor
+                {
+                    Gender = Gender.Female,
+                    Name = "Elizabeth Olsen"
                 }
             };
 

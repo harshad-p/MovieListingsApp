@@ -20,21 +20,21 @@ namespace MovieListingsApp.Services
         /// <summary>
         /// Creates a Movie Listing and adds the requried Actors and Thumbnails.
         /// </summary>
-        /// <param name="createMovieViewModel">View Model for a Movie.</param>
+        /// <param name="createViewModel">View Model for a Movie.</param>
         /// <returns>Movie Id: if succesfully created a movie listing; 
         /// -1: otherwise.</returns>
-        public async Task<int> CreateAsync(CreateViewModel createMovieViewModel)
+        public async Task<int> CreateAsync(CreateViewModel createViewModel)
         {
             try
             {
                 var movie = new TblMovie
                 {
-                    Title = createMovieViewModel.Title,
-                    Description = createMovieViewModel.Description,
-                    Year = createMovieViewModel.Year,
+                    Title = createViewModel.Title.Trim(),
+                    Description = createViewModel.Description.Trim(),
+                    Year = createViewModel.Year,
                 };
 
-                foreach(var actor in createMovieViewModel.Actors)
+                foreach(var actor in createViewModel.Actors)
                 {
                     movie.MovieActors.Add(new TblMovieActor
                     {
@@ -42,7 +42,7 @@ namespace MovieListingsApp.Services
                     });
                 }
 
-                foreach (var thumbnail in createMovieViewModel.Thumbnails)
+                foreach (var thumbnail in createViewModel.Thumbnails)
                 {
                     if (thumbnail != null)
                     {

@@ -150,7 +150,6 @@
     <Compile Include="Contracts\Services\IMoviesService.cs" />
     <Compile Include="Contracts\Services\IMovieThumbnailsService.cs" />
     <Compile Include="Contracts\ViewModelGenerators\IMovieViewModelGenerators.cs" />
-    <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovieThumbnailsController.cs" />
     <Compile Include="Data\MovieListingDataSeeder.cs" />

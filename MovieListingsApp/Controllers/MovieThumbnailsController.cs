@@ -13,18 +13,14 @@ namespace TicketingApp.Controllers
             _movieThumbnailsService = movieThumbnailsService;
         }
 
-        public MovieThumbnailsController()
-        {
-        }
-
         public async Task<ActionResult> Download(long id)
         {
-            var attachment = await _movieThumbnailsService.GetByIdLightAsync(id);
-            if (attachment == null || attachment.Content == null)
+            var thumbnail = await _movieThumbnailsService.GetByIdLightAsync(id);
+            if (thumbnail == null || thumbnail.Content == null)
             {
-                return View("NotFound", "Attachment not found.");
+                return View("NotFound", "_Layout", $"Attachment [Id: {id}] not found.");
             }
-            return File(attachment.Content, System.Net.Mime.MediaTypeNames.Application.Octet, attachment.FileName);
+            return File(thumbnail.Content, thumbnail.ContentType, thumbnail.FileName);
         }
 
     }

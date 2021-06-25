@@ -5,6 +5,14 @@
     var movies = Model;
 }
 
+@if (!movies.Any())
+{
+    <div class="gray-highlight text-center mt-2 p-4">
+        No listings found. 
+    </div>
+
+    return;
+}
 <div>
     @foreach (var item in movies)
     {
@@ -14,6 +22,7 @@
                     <div class="col-4 border border-secondary">
                         @if (item.ThumbnailIds.Any())
                         {
+                            //Only using 1 thumbnail for now.
                             <img src="~/MovieThumbnails/Download/@item.ThumbnailIds.First()"
                                  style="max-width:100%; height: auto;" />
                         }
@@ -28,11 +37,13 @@
                         </h2>
                         <hr />
                         <p>
-                            @item.Description
+                            @Html.Raw(item.Description.Substring(0, Math.Min(500, item.Description.Length)).Replace("\n", "<br />"))
                         </p>
                         <div>
-                            <a href="~/Home/Details/@item.Id" 
-                               class="btn btn-primary">Details</a>
+                            <a href="~/Home/Details/@item.Id"
+                               class="btn btn-primary">
+                                <i class="fas fa-ellipsis-h"></i> More
+                            </a>
                         </div>
                     </div>
                 </div>

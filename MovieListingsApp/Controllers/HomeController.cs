@@ -13,7 +13,9 @@ namespace MovieListingsApp.Controllers
         private readonly IMovieFormModelGenerators _movieFormModelGenerators;
         private readonly IMoviesService _moviesService;
 
-        public HomeController(IMovieViewModelGenerators movieViewModelGenerators, IMovieFormModelGenerators movieFormModelGenerators, IMoviesService moviesService)
+        public HomeController(IMovieViewModelGenerators movieViewModelGenerators,
+                              IMovieFormModelGenerators movieFormModelGenerators,
+                              IMoviesService moviesService)
         {
             _movieViewModelGenerators = movieViewModelGenerators;
             _movieFormModelGenerators = movieFormModelGenerators;
@@ -25,7 +27,7 @@ namespace MovieListingsApp.Controllers
             var viewModel = await _movieViewModelGenerators.GetIndexViewModelAsync();
             if(viewModel == null)
             {
-                return View("Error", "Cannot View Movie Listings at the moment.");
+                return View("Error", "_Layout", "Cannot View Movie Listings at the moment.");
             }
 
             return View(viewModel);
@@ -51,12 +53,12 @@ namespace MovieListingsApp.Controllers
             }
             ViewBag.actors = formModel.Actors;
 
-            return View("Create");
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CreateViewModel createMovieViewModel)
+        public async Task<ActionResult> Create(CreateViewModel createViewModel)
         {
             var formModel = await _movieFormModelGenerators.GetCreateFormModelAsync();
             if (formModel == null)
@@ -67,10 +69,10 @@ namespace MovieListingsApp.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View(createMovieViewModel);
+                return View(createViewModel);
             }
 
-            var movieId = await _moviesService.CreateAsync(createMovieViewModel);
+            var movieId = await _moviesService.CreateAsync(createViewModel);
             if(movieId == -1)
             {
                 return View("Error", "_Layout", "Cannot Create Movie Listing at the moment.");
