@@ -1,25 +1,25 @@
 ﻿@model string
 
 @{
-    ViewData["Title"] = "Error";
+    ViewData["Title"] = "Not Found";
 
     string message = Model;// (string)ViewBag.message;
 }
 
 <div class="container">
 
-    <h1 class="page-heading">Error</h1>
+    <h1 class="page-heading">Not Found</h1>
     <hr />
 
     <div class="m-4">
         <h2 class="text-center text-danger">
-            Something went wrong!
+            The requested resource was not found.
         </h2>
 
         <p class="text-center text-secondary">
             @if (string.IsNullOrEmpty(message))
             {
-                <span>Refresh the page, or try again later.</span>
+                <span>Refresh the page, try again later, or resource might have been deleted.</span>
             }
             else
             {

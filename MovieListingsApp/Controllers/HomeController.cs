@@ -25,6 +25,17 @@ namespace MovieListingsApp.Controllers
             return View(viewModel);
         }
 
+        public async Task<ActionResult> Details(int id)
+        {
+            var viewModel = await _movieViewModelGenerators.GetDetailsViewModelAsync(id);
+            if (viewModel == null)
+            {
+                return View("Error", "_Layout", "Cannot view Movie Listings at the moment.");
+            }
+
+            return View(viewModel);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

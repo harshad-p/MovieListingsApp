@@ -1,4 +1,4 @@
-﻿@using MovieListingsApp.Models
+﻿@using MovieListingsApp.Models.MovieModels
 @model IEnumerable<Movie>
 
 @{
@@ -14,7 +14,7 @@
                     <div class="col-4 border border-secondary">
                         @if (item.ThumbnailIds.Any())
                         {
-                            <img src="~/MovieThumbnails/Download/@item.ThumbnailIds.First()" 
+                            <img src="~/MovieThumbnails/Download/@item.ThumbnailIds.First()"
                                  style="max-width:100%; height: auto;" />
                         }
                         else
@@ -30,6 +30,10 @@
                         <p>
                             @item.Description
                         </p>
+                        <div>
+                            <a href="~/Home/Details/@item.Id" 
+                               class="btn btn-primary">Details</a>
+                        </div>
                     </div>
                 </div>
             </div>

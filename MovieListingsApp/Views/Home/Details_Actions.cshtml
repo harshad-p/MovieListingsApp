@@ -1,0 +1,72 @@
+﻿@using MovieListingsApp.Models.MovieModels
+@model DetailsViewModel
+
+@{
+    var movie = Model;
+    bool canCreate = Model.MovieUserPrivileges.CanCreate;
+    bool canEdit = Model.MovieUserPrivileges.CanEdit;
+    bool canDelete = Model.MovieUserPrivileges.CanDelete;
+
+    var showActionsMenu = canCreate
+                || canEdit
+                || canDelete;
+}
+
+<a href="~/Home"
+   class="btn btn-secondary d-block d-md-inline-block mt-2 mb-2 slow-loading-element">
+    <i class="fas fa-arrow-left"></i> Movies
+</a>
+
+@if (showActionsMenu)
+{
+    <div class="d-block d-md-inline-block btn-group">
+        <button class="btn btn-info dropdown-toggle w-100 mt-2 mb-2"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+            Actions
+        </button>
+
+        <div class="dropdown-menu w-100 p-0" aria-movieledby="dropdownMenuButton">
+
+            @*<a href="~/Ticket?movieId=@movie.Id"
+                   class="dropdown-item text-secondary p-2 slow-loading-element">
+                    <span class="fas fa-bug"></span> Tickets
+                </a>
+                <div class="dropdown-divider m-0"></div>*@
+
+            @if (canCreate)
+            {
+                <a href="~/Movies/Create"
+                   class="dropdown-item text-primary p-2 slow-loading-element">
+                    <i class="fas fa-plus-circle"></i> Create
+                </a>
+            }
+
+            @if (canEdit)
+            {
+                <div class="dropdown-divider m-0"></div>
+                <a href="~/Movies/Edit/@movie.Id"
+                   class="dropdown-item text-warning p-2 slow-loading-element">
+                    <i class="fas fa-scissors"></i> Edit
+                </a>
+            }
+
+            @if (canDelete)
+            {
+                <div class="dropdown-divider m-0"></div>
+                <a href="#"
+                   class="dropdown-item text-danger p-2"
+                   data-toggle="modal"
+                   data-target="#delete-movie-confirmation-dialog">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </a>
+            }
+
+        </div>
+    </div>
+}
+
+@*<partial name="Details_Actions_Modals" />*@

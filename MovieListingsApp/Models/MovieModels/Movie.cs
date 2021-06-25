@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MovieListingsApp.Models
+namespace MovieListingsApp.Models.MovieModels
 {
     public class Movie
     {

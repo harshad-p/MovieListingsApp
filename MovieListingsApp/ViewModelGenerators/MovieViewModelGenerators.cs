@@ -1,7 +1,8 @@
 ﻿using MovieListingsApp.Contracts.ViewModelGenerators;
 using MovieListingsApp.Core.Contracts.Repositories;
 using MovieListingsApp.Entities;
-using MovieListingsApp.Models;
+using MovieListingsApp.Models.MovieModels;
+using MovieListingsApp.Models.UserPrivileges;
 using System;
 using System.Threading.Tasks;
 
@@ -40,6 +41,55 @@ namespace MovieListingsApp.ViewModelGenerators
                 // log exception. 
                 return null;
             }
+        }
+
+        public async Task<DetailsViewModel> GetDetailsViewModelAsync(int id)
+        {
+            try
+            {
+                var movie = await _moviesRepository.GetByIdHeavyAsync(id);
+                if(movie == null)
+                {
+                    throw new Exception($"Movie [Id: {id}] not found.");
+                }
+
+                var thumbnailIds = _movieThumbnailsRepository.GetAllIdsForMovieAsync(movie.Id).Result;
+
+                var detailsViewModel = new DetailsViewModel
+                {
+                    Id = movie.Id, 
+                    Title = movie.Title, 
+                    Description = movie.Description, 
+                    Year = movie.Year, 
+                    ThumbnailIds = thumbnailIds, 
+                    MovieUserPrivileges = new MovieUserPrivileges
+                    {
+                        
+                    }
+                };
+
+                foreach(var actor in movie.MovieActors)
+                {
+                    detailsViewModel.Actors.Add(BuildActor(actor));
+                }
+
+                return detailsViewModel;
+            }
+            catch (Exception)
+            {
+                // log exception. 
+                return null;
+            }
+        }
+
+        private Actor BuildActor(TblMovieActor movieActor)
+        {
+            return new Actor
+            {
+                Id = movieActor.Actor.Id, 
+                Name = movieActor.Actor.Name, 
+                Gender = movieActor.Actor.Gender.ToString()
+            };
         }
 
         private Movie BuildMovie(TblMovie movie)

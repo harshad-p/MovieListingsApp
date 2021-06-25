@@ -1,0 +1,58 @@
+﻿@using MovieListingsApp.Models.MovieModels
+@model DetailsViewModel
+
+@{
+    var movie = Model;
+}
+
+<div class="bg-light p-4">
+    <h2 class="">
+        @movie.Title [@movie.Year]
+    </h2>
+    <hr />
+    <div class="text-center">
+        @if (movie.ThumbnailIds.Any())
+        {
+            <img src="~/MovieThumbnails/Download/@movie.ThumbnailIds.First()"
+                 style="max-width:500px; height: auto;" />
+        }
+        else
+        {
+            <span>No Image</span>
+        }
+    </div>
+
+    <div class="mt-4">
+        <h2 class="">
+            Description
+        </h2>
+        <hr />
+        <p>
+            @if (!string.IsNullOrEmpty(movie.Description) || !string.IsNullOrWhiteSpace(movie.Description))
+            {
+                <span>
+                    @Html.Raw(movie.Description.Replace("\n", "<br />"))
+                </span>
+            }
+            else
+            {
+                <i class="text-secondary">No Description available</i>
+            }
+        </p>
+    </div>
+
+    <div>
+        <h2 class="">
+            Actors
+        </h2>
+        <hr />
+        <p>
+            <ul>
+                @foreach(var actor in movie.Actors)
+                {
+                    <li>@actor.Name</li>
+                }
+            </ul>
+        </p>
+    </div>
+</div>

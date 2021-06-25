@@ -1,0 +1,28 @@
+﻿@using MovieListingsApp.Models.MovieModels
+@model DetailsViewModel
+
+@{
+    ViewData["Title"] = $"Movie - {Model.Id} - Details";
+}
+
+<div id="movie-details-div" class="container">
+
+    <h1 class="page-heading">Movie Details</h1>
+
+    <hr class="mb-0" />
+
+    <div class="mt-2">
+        @Html.Partial("Details_Actions")
+    </div>
+
+    @*<div class="mt-2">
+        @Html.Partial("_SuccessMessages")
+        </div>*@
+
+    <div class="p-2 bg-light">
+        @Html.Partial("Details_Properties")
+    </div>
+
+</div>
+
+@*@Html.Partial("_FailureMessages")*@

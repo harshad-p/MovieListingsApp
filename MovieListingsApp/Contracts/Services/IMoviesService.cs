@@ -1,4 +1,4 @@
-﻿using MovieListingsApp.Models;
+﻿using MovieListingsApp.Models.MovieModels;
 using System.Threading.Tasks;
 
 namespace MovieListingsApp.Contracts.Services
