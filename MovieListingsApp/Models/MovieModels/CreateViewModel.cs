@@ -21,7 +21,7 @@ namespace MovieListingsApp.Models.MovieModels
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public int Year { get; set; }
+        public int? Year { get; set; }
 
         [ValidateActors]
         public List<int> Actors { get; set; }

@@ -53,7 +53,7 @@ namespace MovieListingsApp.Controllers
             }
             ViewBag.actors = formModel.Actors;
 
-            return View();
+            return View(new CreateViewModel());
         }
 
         [HttpPost]

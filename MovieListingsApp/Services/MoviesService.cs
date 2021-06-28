@@ -31,7 +31,7 @@ namespace MovieListingsApp.Services
                 {
                     Title = createViewModel.Title.Trim(),
                     Description = createViewModel.Description.Trim(),
-                    Year = createViewModel.Year,
+                    Year = createViewModel.Year.Value,
                 };
 
                 foreach(var actor in createViewModel.Actors)

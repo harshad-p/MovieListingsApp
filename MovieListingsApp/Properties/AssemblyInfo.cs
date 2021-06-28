@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MovieListingsApp")]
-[assembly: AssemblyDescription("Requirement 3 Complete. From the listings page, there should be a button to either show a modal window or take you to a new page, where you can create a new movie listing. It should at least collect the movie title, a description, and allow you to either upload an image/thumbnail for the movie, or let you enter a direct image url.")]
+[assembly: AssemblyDescription("MovieListingsApp")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MovieListingsApp")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.4.0.0")]
-[assembly: AssemblyFileVersion("1.4.0.0")]
+[assembly: AssemblyVersion("1.4.1.0")]
+[assembly: AssemblyFileVersion("1.4.1.0")]
